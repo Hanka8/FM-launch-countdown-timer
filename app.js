@@ -15,7 +15,7 @@ function flip(flipCard, newNumber) {
     const bottomFlip = document.createElement("div");
     bottomFlip.classList.add("bottom-flip");
 
-    if (startNumber < 10) {
+    if (startNumber < 9 && startNumber > 1) {
         bottomFlip.textContent = `0${newNumber}`;
         bottomHalf.textContent = `0${startNumber}`;
         topFlip.textContent = `0${startNumber}`;
@@ -26,7 +26,7 @@ function flip(flipCard, newNumber) {
     }
 
     topFlip.addEventListener("animationstart", e => {
-        if (startNumber < 10) {
+        if (startNumber <= 10 && startNumber >= 1) {
             topHalf.textContent = `0${newNumber}`
         } else {
             topHalf.textContent = newNumber;
@@ -34,7 +34,7 @@ function flip(flipCard, newNumber) {
     });
 
     topFlip.addEventListener("animationend", e => {
-        if (startNumber < 10) {
+        if (startNumber <= 10 && startNumber >= 1) {
             bottomHalf.textContent = `0${newNumber}`
         } else {
             bottomHalf.textContent = newNumber;
@@ -53,7 +53,7 @@ function flipAllCards(time) {
 
     const seconds = time % 60;
     const minutes = Math.floor((time / 60) % 60);
-    const hours = Math.floor((time / 3600) % 60);
+    const hours = Math.floor((time / 3600) % 24 - 2);
     const days = Math.floor(time / 86400);
 
     flip(document.querySelector("[data-seconds"), seconds);

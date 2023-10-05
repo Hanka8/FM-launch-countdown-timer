@@ -63,7 +63,7 @@ function flipAllCards(time) {
 }
 
 
-const countToDate = new Date("2024-31-03");
+const countToDate = new Date("2024-03-31");
 let previousTimeBetweenDates;
 setInterval(() => {
     const currentDate = new Date();
